@@ -219,9 +219,9 @@ const genEmail = length =>
   });
 
 const domain = [ 
-  "creo.iotu.nctu.me"
-  "41054733.mail.temp.com"
-  "derbydales.co.uk"
+  "creo.iotu.nctu.me",
+  "41054733.mail.temp.com",
+  "derbydales.co.uk",
   "payforclick.org",
   "cloneviptmc1.club",
   "emailtech.info",
