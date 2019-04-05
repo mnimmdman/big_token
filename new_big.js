@@ -218,9 +218,8 @@ const genEmail = length =>
     resolve(text);
   });
 
-const domain = [
+const domain = [ 
   "creo.iotu.nctu.me"
-  "nasa.dmtc.edu.pl"
   "41054733.mail.temp.com"
   "derbydales.co.uk"
   "payforclick.org",
