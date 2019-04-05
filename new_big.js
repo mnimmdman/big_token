@@ -221,12 +221,10 @@ const genEmail = length =>
 const domain = [ 
   "creo.iotu.nctu.me",
   "nasa.dmtc.edu.pl",
-  "tempmail24.com",
   "41054733.mail.temp.com",
   "owlymail.com",
   "derbydales.co.uk",
-  "payforclick.org",
-  "titaspaharpur5.ml"
+  "payforclick.org"
 ];
 (async () => {
   try {
@@ -238,7 +236,7 @@ const domain = [
       const email = emel + "@" + item;
 
       await console.log(
-        "[" +
+        "["
           " " +
           moment().format("HH:mm:ss") +
           " " +
