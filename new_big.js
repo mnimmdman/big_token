@@ -220,18 +220,12 @@ const genEmail = length =>
 
 const domain = [ 
   "creo.iotu.nctu.me",
+  "nasa.dmtc.edu.pl",
+  "tempmail24.com",
   "41054733.mail.temp.com",
+  "owlymail.com",
   "derbydales.co.uk",
   "payforclick.org",
-  "cloneviptmc1.club",
-  "emailtech.info",
-  "payforpost.info",
-  "alonzo1121.club",
-  "mimpaharpur.ga",
-  "coolmail.ooo",
-  "alliancewe.us",
-  "wpower.info",
-  "besttandberg.com",
   "titaspaharpur5.ml"
 ];
 (async () => {
