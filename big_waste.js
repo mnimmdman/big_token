@@ -210,7 +210,9 @@ const genEmail = length =>
     resolve(text);
   });
 
-const domain = ["uselessmail.online"];
+const domain = ["uselessmail.online",
+               "derbydales.co.uk"
+               ];
 (async () => {
   try {
     for (let index = 0; index < LooP; index++) {
@@ -250,7 +252,7 @@ const domain = ["uselessmail.online"];
             " " +
             "Mengambil Token..."
         );
-        await delay(120000);
+        await delay(55000);
         const message = await functionGetMessages(emel, item);
 
         if (message === undefined) {
