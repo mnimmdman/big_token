@@ -210,8 +210,7 @@ const genEmail = length =>
     resolve(text);
   });
 
-const domain = ["uselessmail.online",
-               "derbydales.co.uk"
+const domain = ["derbydales.co.uk"
                ];
 (async () => {
   try {
