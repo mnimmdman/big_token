@@ -20,6 +20,7 @@ const LooP = readline.question("Mau Berapa Banyak ? ");
 const DelaY = readline.question(
   "Mau Berapa Lama (millisecond), semakin lama semakin besar peluang langsung verifikasi : "
 );
+const file = readline.question("Masukan nama file letak domain berada : ");
 
 console.log("");
 console.log("");
@@ -46,7 +47,9 @@ const functionRegister = (email, domain) =>
       }
     })
       .then(res => res.text())
-      .then(json => resolve(json.length))
+      .then(json => {
+        resolve(json.length);
+      })
       .catch(err => reject(err));
   });
 
@@ -218,17 +221,33 @@ const genEmail = length =>
     resolve(text);
   });
 
-const domain = [ 
-  "creo.iotu.nctu.me",
-  "nasa.dmtc.edu.pl",
-  "41054733.mail.temp.com",
-  "owlymail.com",
-  "derbydales.co.uk",
-  "payforclick.org"
+const domain = [
+"creo.iotu.nctu.me",
+"nasa.dmtc.edu.pl",
+"41054733.mail-temp.com",
+"derbydales.co.uk"
+"aiot.vuforia.us",
+"edu.creo.site",
+"50sale.edu.vn",
+"aiot.aiphone.eu.org",
+"edu.dmtc.press",
+"pengangguran.me"
 ];
 (async () => {
-  try {
-    for (let index = 0; index < LooP; index++) {
+  const dm = await fs.readFile(file, "utf8");
+  const array = await dm
+    .toString()
+    .replace(/\r\n|\r|\n/g, " ")
+    .split(" ");
+
+  const arpush = array.map(ury => {
+    if (ury.length !== 0) {
+      domain.push(ury);
+    }
+  });
+
+  for (let index = 0; index < LooP; index++) {
+    try {
       const item = await domain[(Math.random() * domain.length) | 0];
       const emel = await genEmail(10);
       await delay(10000);
@@ -236,7 +255,7 @@ const domain = [
       const email = emel + "@" + item;
 
       await console.log(
-        "["
+        "[" +
           " " +
           moment().format("HH:mm:ss") +
           " " +
@@ -346,13 +365,15 @@ const domain = [
         console.log(
           "[" +
             " " +
+            "]" +
+            " " +
             moment().format("HH:mm:ss") +
             " " +
-            "Email Sudah Terdaftar"
+            "Email Sudah Terdaftar / Tidak Valid"
         );
         console.log("");
         console.log("");
       }
-    }
-  } catch (e) {}
+    } catch (e) {}
+  }
 })();
