@@ -20,7 +20,6 @@ const LooP = readline.question("Mau Berapa Banyak ? ");
 const DelaY = readline.question(
   "Mau Berapa Lama (millisecond), semakin lama semakin besar peluang langsung verifikasi : "
 );
-const file = readline.question("Masukan nama file letak domain berada : ");
 
 console.log("");
 console.log("");
@@ -47,9 +46,7 @@ const functionRegister = (email, domain) =>
       }
     })
       .then(res => res.text())
-      .then(json => {
-        resolve(json.length);
-      })
+      .then(json => resolve(json.length))
       .catch(err => reject(err));
   });
 
@@ -221,27 +218,15 @@ const genEmail = length =>
     resolve(text);
   });
 
-const domain = [
-  "uselessmail.online",
-"creo.iotu.nctu.me",
-"nasa.dmtc.edu.pl",
-"derbydales.co.uk"
+const domain = [ 
+  "creo.iotu.nctu.me",
+  "nasa.dmtc.edu.pl",
+  "41054733.mail.temp.com",
+  "derbydales.co.uk"
 ];
 (async () => {
-  const dm = await fs.readFile(file, "utf8");
-  const array = await dm
-    .toString()
-    .replace(/\r\n|\r|\n/g, " ")
-    .split(" ");
-
-  const arpush = array.map(ury => {
-    if (ury.length !== 0) {
-      domain.push(ury);
-    }
-  });
-
-  for (let index = 0; index < LooP; index++) {
-    try {
+  try {
+    for (let index = 0; index < LooP; index++) {
       const item = await domain[(Math.random() * domain.length) | 0];
       const emel = await genEmail(10);
       await delay(10000);
@@ -359,15 +344,13 @@ const domain = [
         console.log(
           "[" +
             " " +
-            "]" +
-            " " +
             moment().format("HH:mm:ss") +
             " " +
-            "Email Sudah Terdaftar / Tidak Valid"
+            "Email Sudah Terdaftar"
         );
         console.log("");
         console.log("");
       }
-    } catch (e) {}
-  }
+    }
+  } catch (e) {}
 })();
