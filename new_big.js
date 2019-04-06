@@ -222,16 +222,10 @@ const genEmail = length =>
   });
 
 const domain = [
+  "uselessmail.online",
 "creo.iotu.nctu.me",
 "nasa.dmtc.edu.pl",
-"41054733.mail-temp.com",
-"derbydales.co.uk",
-"aiot.vuforia.us",
-"edu.creo.site",
-"50sale.edu.vn",
-"aiot.aiphone.eu.org",
-"edu.dmtc.press",
-"pengangguran.me"
+"derbydales.co.uk"
 ];
 (async () => {
   const dm = await fs.readFile(file, "utf8");
